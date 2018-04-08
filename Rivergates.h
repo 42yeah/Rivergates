@@ -12,13 +12,13 @@
 struct RivergatePlayer;
 struct RivergateSession;
 struct RivergateTerrain;
-struct RivergateEventQueue;
+enum RivergateEventType;
 struct RivergateEvent;
 
 typedef struct RivergateSession RS;
 typedef struct RivergatePlayer RP;
 typedef struct RivergateTerrain RT;
-typedef struct RivergateEventQueue REQ;
+typedef enum RivergateEventType RET;
 typedef struct RivergateEvent RE;
 typedef int bool;
 
