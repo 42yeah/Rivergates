@@ -29,5 +29,13 @@ int main()
         printf("%d %d\n", re->x, re->y);
         re = re->next;
     }
+    
+    ////////////////////////////////////
+    // Gear test
+    ////////////////////////////////////
+    for (int i = 0; i < MAXITEMLEN; i++)
+    {
+        printf("%s\n", RS_getRPIndex(rs, 0)->gears[i]->name);
+    }
     return 0; 
 };

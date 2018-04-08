@@ -1,6 +1,8 @@
 #ifndef RIVERGATETERRAIN_H_
 #define RIVERGATETERRAIN_H_
 
+#include "Rivergates.h"
+
 struct RivergateTerrain
 {
     int x;

@@ -78,3 +78,27 @@ void RS_pushRP(RS* rs, RP rp)
     rs->rpLen++;
     rs->rps = mem;
 }
+
+// Return the player based on index.
+RP* RS_getRPIndex(RS* rs, int i)
+{
+	if (i < 0 && i >= rs->rpLen)
+    {
+        return NULL;
+    }
+    return &(rs->rps[i]);
+}
+
+// Return the player based on position.
+RP *RS_getRPPos(RS *rs, int x, int y)
+{
+    for (int i = 0; i < rs->rpLen; i++)
+    {
+    	if (rs->rps[i].x == x && rs->rps[i].y == y)
+        {
+            return &(rs->rps[i]);
+        }
+    }
+
+    return NULL;
+}

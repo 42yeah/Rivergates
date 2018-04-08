@@ -1,6 +1,8 @@
 #ifndef RIVERGATEEVENT_H_
 #define RIVERGATEEVENT_H_
 
+#include "Rivergates.h"
+
 enum RivergateEventType
 {
     WALK = 0, CHOP
