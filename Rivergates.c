@@ -33,6 +33,7 @@ int main()
     ////////////////////////////////////
     // Gear test
     ////////////////////////////////////
+    RS_getRPIndex(rs, 0)->gears[0] = RG_getGear(SWORD);
     for (int i = 0; i < MAXITEMLEN; i++)
     {
         printf("%s\n", RS_getRPIndex(rs, 0)->gears[i]->name);

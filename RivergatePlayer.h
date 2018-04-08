@@ -13,4 +13,6 @@ struct RivergatePlayer
 
 RP produceRPNothing();
 
+void RP_useGear(RP *rp, int index, RE *events);
+
 #endif

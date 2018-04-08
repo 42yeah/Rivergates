@@ -17,6 +17,7 @@ struct RivergateTerrain;
 enum RivergateEventType;
 struct RivergateEvent;
 struct RivergateGear;
+enum RivergateGearID;
 
 typedef struct RivergateSession RS;
 typedef struct RivergatePlayer RP;
@@ -24,6 +25,7 @@ typedef struct RivergateTerrain RT;
 typedef enum RivergateEventType RET;
 typedef struct RivergateEvent RE;
 typedef struct RivergateGear RG;
+typedef enum RivergateGearID RGID;
 typedef int bool;
 
 // Standard includes
