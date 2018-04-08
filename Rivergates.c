@@ -4,6 +4,9 @@
 
 int main() 
 {
+	////////////////////////////////////
+	// Map test
+	////////////////////////////////////
     RS *rs = RS_create();
     RS_pushRP(rs, produceRPNothing());
     for (int y = 0; y < MAPH; y++)
@@ -13,6 +16,18 @@ int main()
             printf("%c", RS_getMapRepr(rs, x, y));
         }
         printf("\n");
+    }
+    
+    ////////////////////////////////////
+	// Event test
+	////////////////////////////////////
+    RE *re = RE_create(NULL, WALK, NULL, 0, 3, 2);
+    RE *re1 = RE_create(NULL, CHOP, NULL, 0, 1, 2);
+    re = RE_attach(re, re1);
+    while (re)
+    {
+        printf("%d %d\n", re->x, re->y);
+        re = re->next;
     }
     return 0; 
 };

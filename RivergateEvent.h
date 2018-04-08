@@ -3,7 +3,7 @@
 
 enum RivergateEventType
 {
-    WALK = 0
+    WALK = 0, CHOP
 };
 
 // Linked-list styled
@@ -14,9 +14,13 @@ struct RivergateEvent
     int targetLen;
     int x, y;                    // Affected position
     struct RivergateEvent *next; // Event queue
-    int type;
+    RET type;
 };
 
-RE *RE_create(RP *pl, int type, RP *pls[], int plLen, int x, int y);
+RE *RE_create(RP *pl, RET type, RP *pls[], int plLen, int x, int y);
+
+int getPriority(RET ret);
+
+RE *RE_attach(RE *re, RE *attach);
 
 #endif
