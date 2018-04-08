@@ -30,7 +30,7 @@ RT* RS_getRT(RS* rs, int x, int y)
 {
     for (int i = 0; i < rs->mapLen; i++)
     {
-    	if (rs->map[i].x == x && rs->map[i].y == y)
+        if (rs->map[i].x == x && rs->map[i].y == y)
         {
             return &(rs->map[i]);
         }
@@ -48,7 +48,7 @@ char RS_getMapRepr(RS *rs, int x, int y)
 {
     for (int i = 0; i < rs->rpLen; i++)
     {
-    	if (rs->rps[i].x == x && rs->rps[i].y == y)
+        if (rs->rps[i].x == x && rs->rps[i].y == y)
         {
             return rs->rps[i].repr;
         }

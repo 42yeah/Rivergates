@@ -34,8 +34,8 @@ RE* RE_attach(RE* re, RE* attach)
         int p2 = getPriority(attach->type);
         if (p2 <= p1)
         {
-        	// Insert BEFORE it; p2 higher than p1
-        	if (iter == re)
+            // Insert BEFORE it; p2 higher than p1
+            if (iter == re)
             {
                 // ITER IS HEAD!!! LINK IT BEFORE ITER
                 attach->next = iter;

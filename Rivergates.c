@@ -17,10 +17,10 @@ int main()
         }
         printf("\n");
     }
-    
+
     ////////////////////////////////////
-	// Event test
-	////////////////////////////////////
+    // Event test
+    ////////////////////////////////////
     RE *re = RE_create(NULL, WALK, NULL, 0, 3, 2);
     RE *re1 = RE_create(NULL, CHOP, NULL, 0, 1, 2);
     re = RE_attach(re, re1);
