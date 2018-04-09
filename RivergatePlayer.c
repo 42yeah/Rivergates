@@ -14,14 +14,15 @@ RP produceRPNothing()
     return rpNothing;
 }
 
-void RP_useGear(RP *rp, int index, RE *events)
+RE* RP_useGear(RP *rp, int index, RE *events)
 {
     RG *gear = rp->gears[index];
     if (gear->id == SWORD)
     {
         // TODO: x and y
         RE *event = RE_create(rp, CHOP, NULL, 0, 0, 0);
-        RE_attach(events, event);
+        events = RE_attach(events, event);
     }
-    
+
+    return events;
 }

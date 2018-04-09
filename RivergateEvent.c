@@ -46,8 +46,8 @@ RE* RE_attach(RE* re, RE* attach)
             {
                 RE *tmp = prev->next;
                 prev->next = attach;
-                attach->next = prev;
-
+                attach->next = tmp;
+                
                 return re;
             }
         }
@@ -57,6 +57,6 @@ RE* RE_attach(RE* re, RE* attach)
     // Iteration is done and it isn't inserted
     prev->next = attach;
     attach->next = NULL;
-
+    
     return re;
 }

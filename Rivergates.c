@@ -4,9 +4,9 @@
 
 int main() 
 {
-	////////////////////////////////////
-	// Map test
-	////////////////////////////////////
+    ////////////////////////////////////
+    // Map test
+    ////////////////////////////////////
     RS *rs = RS_create();
     RS_pushRP(rs, produceRPNothing());
     for (int y = 0; y < MAPH; y++)
@@ -19,18 +19,6 @@ int main()
     }
 
     ////////////////////////////////////
-    // Event test
-    ////////////////////////////////////
-    RE *re = RE_create(NULL, WALK, NULL, 0, 3, 2);
-    RE *re1 = RE_create(NULL, CHOP, NULL, 0, 1, 2);
-    re = RE_attach(re, re1);
-    while (re)
-    {
-        printf("%d %d\n", re->x, re->y);
-        re = re->next;
-    }
-    
-    ////////////////////////////////////
     // Gear test
     ////////////////////////////////////
     RS_getRPIndex(rs, 0)->gears[0] = RG_getGear(SWORD);
@@ -38,5 +26,19 @@ int main()
     {
         printf("%s\n", RS_getRPIndex(rs, 0)->gears[i]->name);
     }
-    return 0; 
+    
+    ////////////////////////////////////
+    // Event test
+    ////////////////////////////////////
+    RE *re = RE_create(NULL, WALK, NULL, 0, 3, 2);
+    RE *re1 = RE_create(NULL, CHOP, NULL, 0, 1, 2);
+    re = RP_useGear(RS_getRPIndex(rs, 0), 0, re);
+    re = RP_useGear(RS_getRPIndex(rs, 0), 0, re);
+    while (re)
+    {
+        printf("%d %d\n", re->x, re->y);
+        re = re->next;
+    }
+
+    return 0;
 };
