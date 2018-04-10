@@ -102,3 +102,29 @@ RP *RS_getRPPos(RS *rs, pos p)
 
     return NULL;
 }
+
+void RS_processRE(RS *rs, RE *re)
+{
+	while (re)
+    {
+        RET type = re->type;
+        pos p;
+        
+        switch (type)
+        {
+        case WALK:
+            p = RP_getDirectionPos(re->player);
+            if (!RS_getRPPos(rs, p))
+            {
+                re->player->pos = p;
+            }
+            // BLOCKED
+            break;
+
+        case CHOP:
+            // TODO
+            break;
+        }
+        re = re->next;
+    }
+}

@@ -31,3 +31,51 @@ RE* RP_useGear(RP *rp, int index, RE *events)
 
     return events;
 }
+
+pos RP_getDirectionPos(RP *rp)
+{
+    pos p = rp->pos;
+	switch (rp->thoughts.direction)
+    {
+    case U:
+        p.y--;
+        break;
+
+    case UR:
+        p.y--;
+        p.x++;
+        break;
+
+    case R:
+        p.x++;
+        break;
+
+    case DR:
+        p.x++;
+        p.y++;
+        break;
+
+    case D:
+        p.y++;
+        break;
+
+    case DL:
+        p.y++;
+        p.x--;
+        break;
+
+    case L:
+        p.x--;
+        break;
+
+    case UL:
+        p.y--;
+        p.x--;
+        break;
+
+    default:
+        break;
+    }
+
+    return p;
+}

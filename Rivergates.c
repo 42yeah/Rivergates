@@ -92,6 +92,7 @@ int main()
             scanf("%s", op);
             events = appendEvent(events, op, rs, i);
         }
+        RS_processRE(rs, events);
     }
 	
     ////////////////////////////////////

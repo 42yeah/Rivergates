@@ -25,4 +25,6 @@ RP *RS_getRPPos(RS *rs, pos p);
 
 char RS_getMapRepr(RS *rs, pos p);
 
+void RS_processRE(RS *rs, RE *re);
+
 #endif

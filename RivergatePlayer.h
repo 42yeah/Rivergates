@@ -21,6 +21,8 @@ struct RivergatePlayer
 
 RP produceRPNothing();
 
+pos RP_getDirectionPos(RP *rp);
+
 RE* RP_useGear(RP *rp, int index, RE *events);
 
 #endif
