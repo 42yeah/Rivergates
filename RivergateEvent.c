@@ -1,6 +1,6 @@
 #include "Rivergates.h"
 
-RE* RE_create(RP* pl, RET type, RP* pls[], int plLen, int x, int y)
+RE* RE_create(RP* pl, RET type, RP* pls[], int plLen)
 {
     RE *re = (RE *)malloc(sizeof(RE));
     re->player = pl;
@@ -9,8 +9,6 @@ RE* RE_create(RP* pl, RET type, RP* pls[], int plLen, int x, int y)
         re->target[i] = pls[i];
     }
     re->targetLen = plLen;
-    re->x = x;
-    re->y = y;
     re->next = NULL;
     re->type = type;
 
@@ -21,6 +19,18 @@ int getPriority(RET ret) {
     int priority[] = {0, 1};
     
     return priority[ret];
+}
+
+void printRE(RE* re)
+{
+    printf("====RE====\n");
+    while (re)
+    {
+        printf("PLAYER %p\nTYPE %d\n", re->player, re->type);
+        re = re->next;
+        printf("====--====\n");
+    }
+    printf("====RE====\n");
 }
 
 RE* RE_attach(RE* re, RE* attach)

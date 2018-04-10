@@ -14,12 +14,11 @@ struct RivergateEvent
     RP *player;
     RP *target[MAXTARGETS];	  // Maximum MAXTARGETS targets
     int targetLen;
-    int x, y;                    // Affected position
     struct RivergateEvent *next; // Event queue
     RET type;
 };
 
-RE *RE_create(RP *pl, RET type, RP *pls[], int plLen, int x, int y);
+RE *RE_create(RP *pl, RET type, RP *pls[], int plLen);
 
 int getPriority(RET ret);
 

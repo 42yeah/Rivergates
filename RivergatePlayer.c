@@ -25,7 +25,7 @@ RE* RP_useGear(RP *rp, int index, RE *events)
     if (gear->id == SWORD)
     {
         // TODO: x and y
-        RE *event = RE_create(rp, CHOP, NULL, 0, 0, 0);
+        RE *event = RE_create(rp, CHOP, NULL, 0);
         events = RE_attach(events, event);
     }
 
