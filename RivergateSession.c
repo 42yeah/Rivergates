@@ -16,8 +16,7 @@ RS *RS_create()
         {
             RT rt = produceRTNothing();
             rt.repr = '.';
-            rt.x = x;
-            rt.y = y;
+            rt.pos = cpos(x, y);
             RS_pushRT(rs, rt);
         }
     }
@@ -26,35 +25,36 @@ RS *RS_create()
 }
 
 // Get the terrain; if blank, create it.
-RT* RS_getRT(RS* rs, int x, int y)
+RT* RS_getRT(RS* rs, pos p)
 {
     for (int i = 0; i < rs->mapLen; i++)
     {
-        if (rs->map[i].x == x && rs->map[i].y == y)
+    	
+    	// TODO: give chunk POS! 
+        if (pos_pequals(rs->map[i].pos, p))
         {
             return &(rs->map[i]);
         }
     }
     // Not found! Create it.
     RT rt = produceRTNothing();
-    rt.x = x;
-    rt.y = y;
+    rt.pos = p;
     RS_pushRT(rs, rt);
     return &(rs->map[rs->mapLen - 1]);
 }
 
 // Get the map's repr.
-char RS_getMapRepr(RS *rs, int x, int y)
+char RS_getMapRepr(RS *rs, pos p)
 {
     for (int i = 0; i < rs->rpLen; i++)
     {
-        if (rs->rps[i].x == x && rs->rps[i].y == y)
+        if (pos_pequals(rs->rps[i].pos, p))
         {
             return rs->rps[i].repr;
         }
     }
 
-    return RS_getRT(rs, x, y)->repr;
+    return RS_getRT(rs, p)->repr;
 }
 
 // Push back a new terrain.
@@ -90,11 +90,11 @@ RP* RS_getRPIndex(RS* rs, int i)
 }
 
 // Return the player based on position.
-RP *RS_getRPPos(RS *rs, int x, int y)
+RP *RS_getRPPos(RS *rs, pos p)
 {
     for (int i = 0; i < rs->rpLen; i++)
     {
-    	if (rs->rps[i].x == x && rs->rps[i].y == y)
+        if (pos_pequals(rs->rps[i].pos, p))
         {
             return &(rs->rps[i]);
         }

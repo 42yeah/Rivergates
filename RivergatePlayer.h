@@ -5,10 +5,18 @@
 
 struct RivergatePlayer
 {
-    int x;
-    int y;
+    pos pos;
     char repr;
     RG *gears[MAXITEMLEN];
+    
+    struct RivergateThoughts
+    {
+        int x;
+        int y;
+        int direction;
+        RP *rps;
+        int rpLen;
+    } thoughts;
 };
 
 RP produceRPNothing();

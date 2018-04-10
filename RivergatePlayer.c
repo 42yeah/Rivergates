@@ -3,12 +3,17 @@
 RP produceRPNothing()
 {
     RP rpNothing;
-    rpNothing.x = 0;
-    rpNothing.y = 0;
+    rpNothing.pos.x = 0;
+    rpNothing.pos.y = 0;
     for (int i = 0; i < MAXITEMLEN; i++)
     {
         rpNothing.gears[i] = produceRGNothing();
     }
+    rpNothing.thoughts.x = 0;
+    rpNothing.thoughts.y = 0;
+    rpNothing.thoughts.rps = NULL;
+    rpNothing.thoughts.direction = 0;
+    rpNothing.thoughts.rpLen = 0;
     rpNothing.repr = '@';
     
     return rpNothing;

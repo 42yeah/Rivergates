@@ -17,12 +17,12 @@ void RS_pushRP(RS *rs, RP rp);
 
 RS *RS_create();
 
-RT *RS_getRT(RS *rs, int x, int y);
+RT *RS_getRT(RS *rs, pos p);
 
 RP *RS_getRPIndex(RS *rs, int i);
 
-RP *RS_getRPPos(RS *rs, int x, int y);
+RP *RS_getRPPos(RS *rs, pos p);
 
-char RS_getMapRepr(RS *rs, int x, int y);
+char RS_getMapRepr(RS *rs, pos p);
 
 #endif

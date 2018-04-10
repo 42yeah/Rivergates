@@ -2,6 +2,18 @@
 #include <stdlib.h>
 #include "Rivergates.h"
 
+void printMap(RS* rs)
+{
+	for (int y = 0; y < MAPH; y++)
+    {
+        for (int x = 0; x < MAPW; x++)
+        {
+            printf("%c", RS_getMapRepr(rs, cpos(x, y)));
+        }
+        printf("\n");
+    }
+}
+
 int main() 
 {
     ////////////////////////////////////
@@ -9,15 +21,23 @@ int main()
     ////////////////////////////////////
     RS *rs = RS_create();
     RS_pushRP(rs, produceRPNothing());
-    for (int y = 0; y < MAPH; y++)
-    {
-        for (int x = 0; x < MAPW; x++)
-        {
-            printf("%c", RS_getMapRepr(rs, x, y));
-        }
-        printf("\n");
-    }
+    RS_pushRP(rs, produceRPNothing());
+    RS_getRPIndex(rs, 1)->pos.x = 9;
+    RS_getRPIndex(rs, 1)->pos.y = 9;
+    printMap(rs);
 
+	while (TRUE)
+	{
+        RE *events = NULL;
+        for (int i = 0; i < rs->rpLen; i++)
+        {
+            char op[256];
+            printMap(rs);
+            scanf("%s", op);
+            
+        }
+    }
+	
     ////////////////////////////////////
     // Gear test
     ////////////////////////////////////

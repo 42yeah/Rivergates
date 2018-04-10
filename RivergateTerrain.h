@@ -5,8 +5,7 @@
 
 struct RivergateTerrain
 {
-    int x;
-    int y;
+    pos pos;
     char repr;
     bool passable;
 };
