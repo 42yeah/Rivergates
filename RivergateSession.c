@@ -122,6 +122,8 @@ void RS_processRE(RS *rs, RE *re)
     {
         RET type = re->type;
         pos p;
+        RP *affected;
+        RP *player = re->player;
         
         switch (type)
         {
@@ -129,21 +131,28 @@ void RS_processRE(RS *rs, RE *re)
             p = RP_getDirectionPos(re->player);
             if (!RS_getRPPos(rs, p))
             {
-                re->player->pos = p;
-                sprintf(msg, "Player %c moved to (%d, %d)", re->player->repr,
-                        re->player->pos.x, re->player->pos.y);
+                player->pos = p;
+                sprintf(msg, "Player %c moved to (%d, %d)", player->repr,
+                        player->pos.x, player->pos.y);
                 announce(rs, msg);
             }
             // BLOCKED
             else
             {
                 sprintf(msg, "Player %c tried to walk, but is blocked...",
-                        re->player->repr);
+                        player->repr);
                 announce(rs, msg);
             }
             break;
 
         case CHOP:
+            affected = RS_getRPPos(rs, player->pos);
+            if (affected)
+            {
+                RP_damage(player, affected, player->thoughts.gear);
+                sprintf(msg, "Player %c chopped player %c!\n", re->player->repr,
+                        affected->repr);
+            }
             
             break;
         }

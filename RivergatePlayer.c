@@ -33,6 +33,8 @@ RE* RP_useGear(RP *rp, int index, RE *events)
         events = RE_attach(events, event);
     }
 
+    rp->thoughts.gear = gear;
+
     return events;
 }
 
@@ -82,4 +84,9 @@ pos RP_getDirectionPos(RP *rp)
     }
 
     return p;
+}
+
+void RP_damage(RP *dealer, RP *rp, RG *gear)
+{ 
+    rp->hp -= gear->dmg;
 }
