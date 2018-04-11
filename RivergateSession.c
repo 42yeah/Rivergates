@@ -1,5 +1,16 @@
 #include "Rivergates.h"
 
+void announce(RS* rs, char* msg)
+{
+    RO *observer = rs->observers;
+    
+    while (observer)
+    {
+        observer->message(msg);
+        observer = observer->next;
+    }
+}
+
 // Create a new RivergateSession instance.
 RS *RS_create()
 {
@@ -106,6 +117,7 @@ RP *RS_getRPPos(RS *rs, pos p)
 
 void RS_processRE(RS *rs, RE *re)
 {
+    char msg[256];
 	while (re)
     {
         RET type = re->type;
@@ -118,8 +130,17 @@ void RS_processRE(RS *rs, RE *re)
             if (!RS_getRPPos(rs, p))
             {
                 re->player->pos = p;
+                sprintf(msg, "Player %c moved to (%d, %d)", re->player->repr,
+                        re->player->pos.x, re->player->pos.y);
+                announce(rs, msg);
             }
             // BLOCKED
+            else
+            {
+                sprintf(msg, "Player %c tried to walk, but is blocked...",
+                        re->player->repr);
+                announce(rs, msg);
+            }
             break;
 
         case CHOP:

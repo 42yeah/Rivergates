@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "Rivergates.h"
 
+void message(char *text) { printf("MESSAGE: %s\n", text); }
+
 void printMap(RS* rs)
 {
 	for (int y = 0; y < MAPH; y++)
@@ -81,6 +83,9 @@ int main()
     RS_pushRP(rs, produceRPNothing());
     RS_getRPIndex(rs, 1)->pos.x = 9;
     RS_getRPIndex(rs, 1)->pos.y = 9;
+    RO* observer = RO_create();
+    observer->message = &message;
+    rs->observers = RO_append(rs->observers, observer);
 
     for (int i = 0; i < rs->rpLen; i++)
     {

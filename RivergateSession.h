@@ -12,6 +12,8 @@ struct RivergateSession
     RO *observers;
 };
 
+void announce(RS* rs, char *msg);
+
 void RS_pushRT(RS *rs, RT rt);
 
 void RS_pushRP(RS *rs, RP rp);
