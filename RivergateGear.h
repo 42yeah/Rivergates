@@ -6,7 +6,8 @@
 enum RivergateGearID
 {
     NOTHING = -1,
-    SWORD = 0
+    SWORD = 0,
+    GEARLEN
 };
 
 struct RivergateGear

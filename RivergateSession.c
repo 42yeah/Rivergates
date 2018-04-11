@@ -9,6 +9,7 @@ RS *RS_create()
     rs->mapLen = 0;
     rs->rps = malloc(0);
     rs->rpLen = 0;
+    rs->observers = NULL;
 
     for (int y = 0; y < MAPH; y++)
     {
@@ -122,7 +123,7 @@ void RS_processRE(RS *rs, RE *re)
             break;
 
         case CHOP:
-            // TODO
+            
             break;
         }
         re = re->next;

@@ -9,6 +9,7 @@ struct RivergateSession
     int mapLen;
     RP *rps;
     int rpLen;
+    RO *observers;
 };
 
 void RS_pushRT(RS *rs, RT rt);

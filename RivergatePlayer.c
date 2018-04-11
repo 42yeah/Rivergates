@@ -9,6 +9,10 @@ RP produceRPNothing()
     {
         rpNothing.gears[i] = produceRGNothing();
     }
+    rpNothing.hp = DEFHP;
+    rpNothing.mp = DEFMP;
+    rpNothing.stamina = DEFSTA;
+    
     rpNothing.thoughts.x = 0;
     rpNothing.thoughts.y = 0;
     rpNothing.thoughts.rps = NULL;

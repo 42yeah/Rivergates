@@ -82,6 +82,23 @@ int main()
     RS_getRPIndex(rs, 1)->pos.x = 9;
     RS_getRPIndex(rs, 1)->pos.y = 9;
 
+    for (int i = 0; i < rs->rpLen; i++)
+    {
+    	for (int j = 0; j < GEARLEN; j++)
+        {
+            printf("%d. %s\n", j + 1, RG_getGear(j)->name);
+        }
+        printf("CHOOSE GEAR PLAYER %d\n", i + 1);
+    	for (int j = 0; j < MAXITEMLEN; j++)
+   	 {
+    	    int in;
+    	    scanf("%d", &in);
+            in--;
+            RS_getRPIndex(rs, i)->gears[j] = RG_getGear(in);
+            printf("You chose %s.\n", RS_getRPIndex(rs, i)->gears[j]->name);
+   	 }
+    }
+
 	while (TRUE)
 	{
         RE *events = NULL;

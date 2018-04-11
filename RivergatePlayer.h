@@ -8,6 +8,9 @@ struct RivergatePlayer
     pos pos;
     char repr;
     RG *gears[MAXITEMLEN];
+    int hp;
+    int mp;
+    int stamina;
     
     struct RivergateThoughts
     {

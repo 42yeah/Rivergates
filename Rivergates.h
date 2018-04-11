@@ -9,6 +9,9 @@
 #define MAXITEMLEN 5
 #define FALSE 0
 #define TRUE 1
+#define DEFHP 100
+#define DEFMP 100
+#define DEFSTA 100
 
 // Directions - the enum hack
 enum Direction
@@ -32,6 +35,7 @@ struct RivergateEvent;
 struct RivergateGear;
 enum RivergateGearID;
 struct RivergatePos;
+struct RivergateObserver;
 
 typedef struct RivergateSession RS;
 typedef struct RivergatePlayer RP;
@@ -41,6 +45,7 @@ typedef struct RivergateEvent RE;
 typedef struct RivergateGear RG;
 typedef enum RivergateGearID RGID;
 typedef struct RivergatePos pos;
+typedef struct RivergateObserver RO;
 typedef int bool;
 
 // Standard includes
@@ -54,5 +59,6 @@ typedef int bool;
 #include "RivergateSession.h"
 #include "RivergateEvent.h"
 #include "RivergateGear.h"
+#include "RivergateObserver.h"
 
 #endif
