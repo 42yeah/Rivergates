@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include "Rivergates.h"
 
 void message(char *text) { printf("MESSAGE: %s\n", text); }
@@ -70,6 +71,19 @@ RE *appendEvent(RE* re, char *op, RS* rs, int i)
             re = RE_attach(re, moveEvent);
         }
     }
+
+    bool gearUsed = FALSE;
+    if (op[0] >= '1' && op[0] <= '5')
+    {
+        int action = atoi(op);
+        action--;
+        
+        if (action >= 0 && action <= MAXITEMLEN)
+        {
+            re = RP_useGear(RS_getRPIndex(rs, i), action, re);
+            gearUsed = TRUE;
+        }
+    }
     return re;
 }
 
@@ -99,8 +113,24 @@ int main()
     	    int in;
     	    scanf("%d", &in);
             in--;
-            RS_getRPIndex(rs, i)->gears[j] = RG_getGear(in);
-            printf("You chose %s.\n", RS_getRPIndex(rs, i)->gears[j]->name);
+            RG *gear = RG_getGear(in);
+            bool found = FALSE;
+            for (int k = 0; k < MAXITEMLEN; k++)
+            {
+                RG *ownGear = RS_getRPIndex(rs, i)->gears[k];
+            	if (strcmp(ownGear->name, gear->name) == 0)
+                {
+                    ownGear->amount += gear->amount;
+                    found = TRUE;
+                    break;
+                }
+            }
+            if (!found)
+            {
+                RS_getRPIndex(rs, i)->gears[j] = gear;
+            }
+            
+            printf("You chose %s.\n", gear->name);
    	 }
     }
 
@@ -111,8 +141,26 @@ int main()
         {
             char op[256] = {0};
             printMap(rs);
+            for (int j = 0; j < MAXITEMLEN; j++)
+            {
+                RG *gear = RS_getRPIndex(rs, i)->gears[j];
+                if (strcmp(gear->name, "Nothing") == 0 || gear->amount == 0)
+                {
+                    continue;
+                }
+                printf("%d. %d %s\n", j + 1,
+                       RS_getRPIndex(rs, i)->gears[j]->amount,
+                       RS_getRPIndex(rs, i)->gears[j]->name);
+            }
             scanf("%s", op);
             events = appendEvent(events, op, rs, i);
+        }
+        printf("\n\n\n\n\n");
+        RE *ev = events;
+        while (ev)
+        {
+            printf("%d\n", ev->type);
+            ev = ev->next;
         }
         RS_processRE(rs, events);
     }

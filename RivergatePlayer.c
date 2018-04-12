@@ -26,6 +26,7 @@ RP produceRPNothing()
 RE* RP_useGear(RP *rp, int index, RE *events)
 {
     RG *gear = rp->gears[index];
+    
     if (gear->id == SWORD)
     {
         // TODO: x and y

@@ -2,7 +2,7 @@
 
 #include <string.h>
 
-RG* RG_create(int id, char* name, int dmg, int stac, int mpc, int hpc)
+RG* RG_create(int id, char* name, int dmg, int stac, int mpc, int hpc, int amount)
 {
     RG *rg = malloc(sizeof(RG));
     strcpy(rg->name, name);
@@ -11,6 +11,7 @@ RG* RG_create(int id, char* name, int dmg, int stac, int mpc, int hpc)
     rg->magicCost = mpc;
     rg->hpCost = hpc;
     rg->id = id;
+    rg->amount = amount;
 
     return rg;
 }
@@ -25,23 +26,21 @@ RG* RG_clone(RG* rg)
 
 RG *produceRGNothing()
 {
-    RG *rg = malloc(sizeof(RG));
+    RG *rg = RG_create(NOTHING, "None", 0, 0, 0, 0, 0);
     strcpy(rg->name, "None");
-    rg->dmg = 0;
-    rg->staminaCost = 0;
-    rg->magicCost = 0;
-    rg->hpCost = 0;
-
+    
     return rg;
 }
 
-void RG_modifyGear(RG* rg, char* name, int stac, int mpc, int hpc, int dmg)
+void RG_modifyGear(RG* rg, int id, char* name, int stac, int mpc, int hpc, int dmg, int amount)
 {
     strcpy(rg->name, name);
+    rg->id = id;
     rg->staminaCost = stac;
     rg->magicCost = mpc;
     rg->hpCost = hpc;
     rg->dmg = dmg;
+    rg->amount = amount;
 }
 
 RG *RG_getGear(int id) {
@@ -53,7 +52,7 @@ RG *RG_getGear(int id) {
         break;
 
     case SWORD:
-        RG_modifyGear(rg, "Sword", 30, 0, 0, 35);
+        RG_modifyGear(rg, SWORD, "Sword", 30, 0, 0, 35, 1);
         break;
 
     default:

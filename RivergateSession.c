@@ -152,8 +152,14 @@ void RS_processRE(RS *rs, RE *re)
                 RP_damage(player, affected, player->thoughts.gear);
                 sprintf(msg, "Player %c chopped player %c!\n", re->player->repr,
                         affected->repr);
+                announce(rs, msg);
             }
-            
+            else
+            {
+                sprintf(msg, "Player %c chopped through thin air.\n",
+                        re->player->repr);
+                announce(rs, msg);
+            }
             break;
         }
         re = re->next;

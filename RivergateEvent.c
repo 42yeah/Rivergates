@@ -38,6 +38,11 @@ RE* RE_attach(RE* re, RE* attach)
     RE *iter = re;
     RE *prev;
     
+    if (!re)
+    {
+        return attach;
+    }
+    
     while (iter)
     {
         int p1 = getPriority(iter->type);
