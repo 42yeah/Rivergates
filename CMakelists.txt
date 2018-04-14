@@ -1,0 +1,3 @@
+cmake_minimum_required(VERSION 2.6)
+project (Rivergates)
+add_executable(Rivergates RivergateEvent.c RivergateGear.c RivergateObserver.c RivergatePlayer.c RivergatePos.c Rivergates.c RivergateSession.c RivergateTerrain.c)

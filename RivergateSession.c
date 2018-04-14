@@ -74,7 +74,6 @@ void RS_pushRT(RS* rs, RT rt)
 {
     RT *mem = malloc(sizeof(RT) * (rs->mapLen + 1));
     memcpy(mem, rs->map, sizeof(RT) * rs->mapLen);
-    free(rs->map);
     mem[rs->mapLen] = rt;
     rs->mapLen++;
     rs->map = mem;
@@ -84,7 +83,7 @@ void RS_pushRT(RS* rs, RT rt)
 void RS_pushRP(RS* rs, RP rp)
 {
     RP *mem = malloc(sizeof(RP) * (rs->rpLen + 1));
-    memcpy(mem, rs->rps, sizeof(RP) * rs->mapLen);
+    memcpy(mem, rs->rps, sizeof(RP) * rs->rpLen);
     free(rs->rps);
     mem[rs->rpLen] = rp;
     rs->rpLen++;
