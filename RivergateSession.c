@@ -146,7 +146,9 @@ void RS_processRE(RS *rs, RE *re)
             break;
 
         case CHOP:
-            affected = RS_getRPPos(rs, player->pos);
+            affected = RS_getRPPos(
+                rs,
+                pos_getAffectedPos(player->pos, player->thoughts.direction, 1));
             if (affected)
             {
                 RP_damage(player, affected, player->thoughts.gear);

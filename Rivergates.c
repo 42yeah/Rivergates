@@ -17,6 +17,52 @@ void printMap(RS* rs)
     }
 }
 
+void askDirection(RP* rp)
+{
+    printf("Direction: ");
+    char op[8];
+    scanf("%s", op);
+    int thd;
+    switch (op[0])
+    {
+    case 'k':
+        rp->thoughts.direction = U;
+        break;
+
+    case 'u':
+        rp->thoughts.direction = UR;
+        break;
+
+    case 'l':
+        rp->thoughts.direction = R;
+        break;
+
+    case 'n':
+        rp->thoughts.direction = DR;
+        break;
+
+    case 'j':
+        rp->thoughts.direction = D;
+        break;
+
+    case 'b':
+        rp->thoughts.direction = DL;
+        break;
+
+    case 'h':
+        rp->thoughts.direction = L;
+        break;
+
+    case 'y':
+        rp->thoughts.direction = UL;
+        break;
+
+    default:
+        printf("Unknown direction. Treats as the direction last time\n");
+        break;
+    }
+}
+
 RE *appendEvent(RE* re, char *op, RS* rs, int i) 
 {
     bool isMove = TRUE;
@@ -83,6 +129,7 @@ RE *appendEvent(RE* re, char *op, RS* rs, int i)
             re = RP_useGear(RS_getRPIndex(rs, i), action, re);
             gearUsed = TRUE;
         }
+        askDirection(RS_getRPIndex(rs, i));
     }
     return re;
 }
@@ -140,6 +187,13 @@ int main()
         for (int i = 0; i < rs->rpLen; i++)
         {
             char op[256] = {0};
+            printf("\n\n\n\n\n\n\n\n\n\n\n\nPass the phone...\n");
+            
+            while (strcmp(op, "ok") != 0)
+            {
+                scanf("%s", op);
+            }
+            
             printMap(rs);
             for (int j = 0; j < MAXITEMLEN; j++)
             {
@@ -155,13 +209,14 @@ int main()
             scanf("%s", op);
             events = appendEvent(events, op, rs, i);
         }
-        printf("\n\n\n\n\n");
+        
         RE *ev = events;
         while (ev)
         {
             printf("%d\n", ev->type);
             ev = ev->next;
         }
+        printMap(rs);
         RS_processRE(rs, events);
     }
 	

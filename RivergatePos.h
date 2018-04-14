@@ -13,4 +13,6 @@ bool pos_pequals(pos a, pos b);
 
 pos cpos(int x, int y);
 
+pos pos_getAffectedPos(pos p, enum Direction d, int x);
+
 #endif
