@@ -156,7 +156,7 @@ int main()
         {
             printf("%d. %s\n", j + 1, RG_getGear(j)->name);
         }
-        printf("CHOOSE GEAR PLAYER %s\n", RS_getRPIndex(rs, i)->name);
+        printf("Choose gear %s\n", RS_getRPIndex(rs, i)->name);
     	for (int j = 0; j < MAXITEMLEN; j++)
         {
     	    int in;
@@ -189,6 +189,7 @@ int main()
         for (int i = 0; i < rs->rpLen; i++)
         {
             char op[256] = {0};
+            RP* player = RS_getRPIndex(rs, 0);
             printf("\n\n\n\n\n\n\n\n\n\n\n\nPass the phone...\n");
             
             while (strcmp(op, "ok") != 0)
@@ -200,12 +201,15 @@ int main()
             printMap(rs);
 
             // Print status 
-            
+            printf("%s,\n", player->name);
+            printf("HP: %d\n", player->hp);
+            printf("MP: %d\n", player->mp);
+            printf("STA: %d\n", player->stamina);
             
             // Print gears
             for (int j = 0; j < MAXITEMLEN; j++)
             {
-                RG *gear = RS_getRPIndex(rs, i)->gears[j];
+                RG *gear = player->gears[j];
                 if (strcmp(gear->name, "Nothing") == 0 || gear->amount == 0)
                 {
                     continue;
