@@ -144,6 +144,8 @@ int main()
     RS_pushRP(rs, produceRPNothing());
     RS_getRPIndex(rs, 1)->pos.x = 9;
     RS_getRPIndex(rs, 1)->pos.y = 9;
+    RP_setName(RS_getRPIndex(rs, 0), "Player 1");
+    RP_setName(RS_getRPIndex(rs, 1), "Player 2");
     RO* observer = RO_create();
     observer->message = &message;
     rs->observers = RO_append(rs->observers, observer);
@@ -154,9 +156,9 @@ int main()
         {
             printf("%d. %s\n", j + 1, RG_getGear(j)->name);
         }
-        printf("CHOOSE GEAR PLAYER %d\n", i + 1);
+        printf("CHOOSE GEAR PLAYER %s\n", RS_getRPIndex(rs, i)->name);
     	for (int j = 0; j < MAXITEMLEN; j++)
-   	 {
+        {
     	    int in;
     	    scanf("%d", &in);
             in--;
@@ -178,7 +180,7 @@ int main()
             }
             
             printf("You chose %s.\n", gear->name);
-   	 }
+   	    }
     }
 
 	while (TRUE)
@@ -194,7 +196,13 @@ int main()
                 scanf("%s", op);
             }
             
+            // Print map
             printMap(rs);
+
+            // Print status 
+            
+            
+            // Print gears
             for (int j = 0; j < MAXITEMLEN; j++)
             {
                 RG *gear = RS_getRPIndex(rs, i)->gears[j];
@@ -216,8 +224,8 @@ int main()
             printf("%d\n", ev->type);
             ev = ev->next;
         }
-        printMap(rs);
         RS_processRE(rs, events);
+        printMap(rs);
     }
 	
     ////////////////////////////////////

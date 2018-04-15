@@ -11,7 +11,8 @@ struct RivergatePlayer
     int hp;
     int mp;
     int stamina;
-    
+    char name[16];
+
     struct RivergateThoughts
     {
         int x;
@@ -30,5 +31,7 @@ pos RP_getDirectionPos(RP *rp);
 RE* RP_useGear(RP *rp, int index, RE *events);
 
 void RP_damage(RP *dealer, RP *victim, RG *gear);
+
+void RP_setName(RP* rp, char* name);
 
 #endif

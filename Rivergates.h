@@ -51,6 +51,7 @@ typedef int bool;
 // Standard includes
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 // Game includes
 #include "RivergatePos.h"

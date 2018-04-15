@@ -131,15 +131,15 @@ void RS_processRE(RS *rs, RE *re)
             if (!RS_getRPPos(rs, p))
             {
                 player->pos = p;
-                sprintf(msg, "Player %c moved to (%d, %d)", player->repr,
+                sprintf(msg, "Player %s moved to (%d, %d)", player->name,
                         player->pos.x, player->pos.y);
                 announce(rs, msg);
             }
             // BLOCKED
             else
             {
-                sprintf(msg, "Player %c tried to walk, but is blocked...",
-                        player->repr);
+                sprintf(msg, "Player %s tried to walk, but is blocked...",
+                        player->name);
                 announce(rs, msg);
             }
             break;
@@ -151,14 +151,14 @@ void RS_processRE(RS *rs, RE *re)
             if (affected)
             {
                 RP_damage(player, affected, player->thoughts.gear);
-                sprintf(msg, "Player %c chopped player %c!\n", re->player->repr,
-                        affected->repr);
+                sprintf(msg, "Player %s chopped player %s!\n", re->player->name,
+                        affected->name);
                 announce(rs, msg);
             }
             else
             {
-                sprintf(msg, "Player %c chopped through thin air.\n",
-                        re->player->repr);
+                sprintf(msg, "Player %s chopped through thin air.\n",
+                        re->player->name);
                 announce(rs, msg);
             }
             break;

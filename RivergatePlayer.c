@@ -19,6 +19,7 @@ RP produceRPNothing()
     rpNothing.thoughts.direction = 0;
     rpNothing.thoughts.rpLen = 0;
     rpNothing.repr = '@';
+    strcpy(rpNothing.name, "Player");
     
     return rpNothing;
 }
@@ -90,4 +91,9 @@ pos RP_getDirectionPos(RP *rp)
 void RP_damage(RP *dealer, RP *rp, RG *gear)
 { 
     rp->hp -= gear->dmg;
+}
+
+void RP_setName(RP* rp, char* name)
+{
+    strcpy(rp->name, name);
 }
