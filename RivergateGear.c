@@ -55,6 +55,11 @@ RG *RG_getGear(int id) {
         RG_modifyGear(rg, SWORD, "Sword", 30, 0, 0, 35, 1);
         break;
 
+	case DAGGER:
+        RG_modifyGear(rg, DAGGER, "Dagger", 15,
+                      0, 0, 25, 5);
+        break;
+        
     default:
         break;
     }

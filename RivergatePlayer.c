@@ -33,7 +33,12 @@ RE* RP_useGear(RP *rp, int index, RE *events)
         RE *event = RE_create(rp, CHOP, NULL, 0);
         events = RE_attach(events, event);
     }
-
+    else if (gear->id == DAGGER)
+    {
+        RE *event = RE_create(rp, STAB, NULL, 0);
+        events = RE_attach(events, event);
+    }
+    
     rp->thoughts.gear = gear;
 
     return events;
