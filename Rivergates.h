@@ -27,6 +27,7 @@ enum Direction
 };
 
 // Structs and typedefs
+enum RivergateStat;
 struct RivergatePlayer;
 struct RivergateSession;
 struct RivergateTerrain;
@@ -38,6 +39,7 @@ struct RivergatePos;
 struct RivergateObserver;
 
 typedef struct RivergateSession RS;
+typedef enum RivergateStat RStat;
 typedef struct RivergatePlayer RP;
 typedef struct RivergateTerrain RT;
 typedef enum RivergateEventType RET;

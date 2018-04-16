@@ -97,3 +97,59 @@ void RP_setName(RP* rp, char* name)
 {
     strcpy(rp->name, name);
 }
+
+void RP_remove(RStat stat, RP* rp, int v)
+{
+    switch (stat)
+    {
+    case HP:
+        rp->hp -= v;
+        break;
+
+    case MP:
+        rp->mp -= v;
+        break;
+
+    case STAMINA:
+        rp->stamina -= v;
+        break;
+    }
+}
+
+bool RP_check(RStat stat, RP* rp, int v)
+{
+    switch (stat)
+    {
+    case HP:
+        if (rp->hp >= v)
+        {
+            return TRUE;
+        }
+        break;
+
+    case MP:
+        if (rp->mp >= v)
+        {
+            return TRUE;
+        }
+        break;
+
+    case STAMINA:
+        if (rp->stamina >= v)
+        {
+            return TRUE;
+        }
+        break;
+    }
+    return FALSE;
+}
+
+bool RP_checkAndRemove(RStat stat, RP* rp, int v)
+{
+    if (RP_check(stat, rp, v))
+    {
+        RP_remove(stat, rp, v);
+        return TRUE;
+    }
+    return FALSE;
+}
