@@ -162,7 +162,27 @@ void RS_processRE(RS *rs, RE *re)
                 announce(rs, msg);
             }
             break;
+            
+        case STAB:
+        	affected = RS_getRPPos(
+                rs,
+                pos_getAffectedPos(player->pos, player->thoughts.direction, 1));
+            if (affected)
+            {
+                RP_damage(player, affected, player->thoughts.gear);
+                sprintf(msg, "Player %c stabbed player %c!\n", re->player->repr,
+                        affected->repr);
+                announce(rs, msg);
+            }
+            else
+            {
+                sprintf(msg, "Player %c stabbed through thin air.\n",
+                        re->player->repr);
+                announce(rs, msg);
+            }
+            break;
         }
+        
         re = re->next;
     }
 }
