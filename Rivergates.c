@@ -231,23 +231,6 @@ int main()
         RS_processRE(rs, events);
         printMap(rs);
     }
-	
-    ////////////////////////////////////
-    // Gear test
-    ////////////////////////////////////
-    RS_getRPIndex(rs, 0)->gears[0] = RG_getGear(SWORD);
-    for (int i = 0; i < MAXITEMLEN; i++)
-    {
-        printf("%s\n", RS_getRPIndex(rs, 0)->gears[i]->name);
-    }
-    
-    ////////////////////////////////////
-    // Event test
-    ////////////////////////////////////
-    RE *re = RE_create(NULL, WALK, NULL, 0);
-    RE *re1 = RE_create(NULL, CHOP, NULL, 0);
-    re = RP_useGear(RS_getRPIndex(rs, 0), 0, re);
-    re = RP_useGear(RS_getRPIndex(rs, 0), 0, re);
 
     return 0;
 };
