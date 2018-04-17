@@ -190,7 +190,7 @@ int main()
         for (int i = 0; i < rs->rpLen; i++)
         {
             char op[256] = {0};
-            RP* player = RS_getRPIndex(rs, 0);
+            RP* player = RS_getRPIndex(rs, i);
             printf("\n\n\n\n\n\n\n\n\n\n\n\nPass the phone...\n");
             
             while (strcmp(op, "ok") != 0)
