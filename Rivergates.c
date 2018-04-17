@@ -157,7 +157,7 @@ int main()
             printf("%d. %s\n", j + 1, RG_getGear(j)->name);
         }
         printf("Choose gear %s\n", RS_getRPIndex(rs, i)->name);
-    	for (int j = 0; j < MAXITEMLEN; j++)
+    	for (int j = 0, index = 0; j < MAXITEMLEN; j++, index++)
         {
     	    int in;
     	    scanf("%d", &in);
@@ -171,6 +171,7 @@ int main()
                 {
                     ownGear->amount += gear->amount;
                     found = TRUE;
+                    index--;
                     break;
                 }
             }

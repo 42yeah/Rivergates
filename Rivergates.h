@@ -12,6 +12,7 @@
 #define DEFHP 100
 #define DEFMP 100
 #define DEFSTA 100
+#define WALKSTA 5
 
 // Directions - the enum hack
 enum Direction
@@ -54,6 +55,7 @@ typedef int bool;
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <assert.h>
 
 // Game includes
 #include "RivergatePos.h"

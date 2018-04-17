@@ -123,6 +123,41 @@ void RS_processRE(RS *rs, RE *re)
         pos p;
         RP *affected;
         RP *player = re->player;
+        RG *gear = player->thoughts.gear;
+        bool pass = TRUE;
+
+        if (type != WALK)
+        {
+            // Check here first.
+            if (RP_check(STAMINA, player, gear->staminaCost) && RP_check(HP, player, gear->hpCost) 
+                && RP_check(MP, player, gear->magicCost))
+            {
+                // If all of them suites the situation, remove them 
+                RP_remove(STAMINA, player, gear->staminaCost);
+                RP_remove(HP, player, gear->hpCost);
+                RP_remove(MP, player, gear->magicCost);
+            }
+            else
+            {
+                sprintf(msg, "Player %s tried to use %s, but didn't have enough stamina...", player->name, gear->name);
+                announce(rs, msg);
+                pass = FALSE;
+            }
+        }
+        else 
+        {
+            if (!RP_checkAndRemove(STAMINA, player, WALKSTA))
+            {
+                sprintf(msg, "Player %s tried to walk, but is too tired...", player->name);
+                announce(rs, msg);
+                pass = FALSE;
+            }
+        }
+
+        if (!pass)
+        {
+            return;
+        }
         
         switch (type)
         {
@@ -170,14 +205,14 @@ void RS_processRE(RS *rs, RE *re)
             if (affected)
             {
                 RP_damage(player, affected, player->thoughts.gear);
-                sprintf(msg, "Player %c stabbed player %c!\n", re->player->repr,
-                        affected->repr);
+                sprintf(msg, "Player %s stabbed player %s!\n", re->player->name,
+                        affected->name);
                 announce(rs, msg);
             }
             else
             {
-                sprintf(msg, "Player %c stabbed through thin air.\n",
-                        re->player->repr);
+                sprintf(msg, "Player %s stabbed through thin air.\n",
+                        re->player->name);
                 announce(rs, msg);
             }
             break;
