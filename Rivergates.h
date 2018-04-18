@@ -13,6 +13,7 @@
 #define DEFMP 100
 #define DEFSTA 100
 #define WALKSTA 5
+#define RESTSTA 25
 
 // Directions - the enum hack
 enum Direction

@@ -5,7 +5,7 @@
 
 enum RivergateEventType
 {
-    WALK = 0, CHOP, STAB, RETLEN
+    REST = 0, WALK, STAB, CHOP, RETLEN
 };
 
 // Linked-list styled

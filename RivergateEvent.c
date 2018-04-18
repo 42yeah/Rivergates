@@ -16,10 +16,8 @@ RE* RE_create(RP* pl, RET type, RP* pls[], int plLen)
 }
 
 int getPriority(RET ret) {
-    int priority[] = {0, 1, 1};
-    assert(RETLEN == sizeof(priority) / sizeof(int));
-
-    return priority[ret];
+    // The order of RivergateEventType indicates the priority.
+    return ret;
 }
 
 void printRE(RE* re)

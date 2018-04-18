@@ -124,12 +124,18 @@ RE *appendEvent(RE* re, char *op, RS* rs, int i)
         int action = atoi(op);
         action--;
         
-        if (action >= 0 && action <= MAXITEMLEN)
+        if (action >= 0 && action <= MAXITEMLEN && RS_getRPIndex(rs, i)->gears[action]->id != NOTHING)
         {
             re = RP_useGear(RS_getRPIndex(rs, i), action, re);
+            askDirection(RS_getRPIndex(rs, i));
             gearUsed = TRUE;
         }
-        askDirection(RS_getRPIndex(rs, i));
+    }
+
+    if (!gearUsed && !isMove)
+    {
+        RE* event = RE_create(RS_getRPIndex(rs, i), REST, NULL, 0);
+        re = RE_attach(re, event);
     }
     return re;
 }
@@ -223,12 +229,6 @@ int main()
             events = appendEvent(events, op, rs, i);
         }
         
-        RE *ev = events;
-        while (ev)
-        {
-            printf("%d\n", ev->type);
-            ev = ev->next;
-        }
         RS_processRE(rs, events);
         printMap(rs);
     }

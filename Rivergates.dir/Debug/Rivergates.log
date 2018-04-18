@@ -1,0 +1,45 @@
+﻿  RivergateEvent.c
+  RivergateGear.c
+C:\Users\potio\Documents\Rivergates\RivergateGear.c(8): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\string.h(136): note: see declaration of 'strcpy'
+C:\Users\potio\Documents\Rivergates\RivergateGear.c(30): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\string.h(136): note: see declaration of 'strcpy'
+C:\Users\potio\Documents\Rivergates\RivergateGear.c(37): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\string.h(136): note: see declaration of 'strcpy'
+  RivergateObserver.c
+  RivergatePlayer.c
+C:\Users\potio\Documents\Rivergates\RivergatePlayer.c(22): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\string.h(136): note: see declaration of 'strcpy'
+C:\Users\potio\Documents\Rivergates\RivergatePlayer.c(103): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\string.h(136): note: see declaration of 'strcpy'
+  RivergatePos.c
+  RivergateSession.c
+C:\Users\potio\Documents\Rivergates\RivergateSession.c(142): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+C:\Users\potio\Documents\Rivergates\RivergateSession.c(151): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+C:\Users\potio\Documents\Rivergates\RivergateSession.c(169): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+C:\Users\potio\Documents\Rivergates\RivergateSession.c(176): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+C:\Users\potio\Documents\Rivergates\RivergateSession.c(189): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+C:\Users\potio\Documents\Rivergates\RivergateSession.c(195): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+C:\Users\potio\Documents\Rivergates\RivergateSession.c(208): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+C:\Users\potio\Documents\Rivergates\RivergateSession.c(214): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+  RivergateTerrain.c
+  Rivergates.c
+C:\Users\potio\Documents\Rivergates\Rivergates.c(24): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(1272): note: see declaration of 'scanf'
+C:\Users\potio\Documents\Rivergates\Rivergates.c(25): warning C4101: 'thd': unreferenced local variable
+C:\Users\potio\Documents\Rivergates\Rivergates.c(163): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(1272): note: see declaration of 'scanf'
+C:\Users\potio\Documents\Rivergates\Rivergates.c(198): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(1272): note: see declaration of 'scanf'
+C:\Users\potio\Documents\Rivergates\Rivergates.c(222): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(1272): note: see declaration of 'scanf'
+  Generating Code...
+  Rivergates.vcxproj -> C:\Users\potio\Documents\Rivergates\build\Debug\Rivergates.exe

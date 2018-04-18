@@ -126,7 +126,7 @@ void RS_processRE(RS *rs, RE *re)
         RG *gear = player->thoughts.gear;
         bool pass = TRUE;
 
-        if (type != WALK)
+        if (type != WALK && type != REST)
         {
             // Check here first.
             if (RP_check(STAMINA, player, gear->staminaCost) && RP_check(HP, player, gear->hpCost) 
@@ -161,6 +161,16 @@ void RS_processRE(RS *rs, RE *re)
         
         switch (type)
         {
+        case REST:
+            player->stamina += RESTSTA;
+            if (player->stamina > 100)
+            {
+                player->stamina = 100;
+            }
+            sprintf(msg, "Player %s took a rest.", player->name);
+            announce(rs, msg);
+            break;
+
         case WALK:
             p = RP_getDirectionPos(re->player);
             if (!RS_getRPPos(rs, p))
