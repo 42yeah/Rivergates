@@ -49,6 +49,11 @@ RE* RP_useGear(RP *rp, int index, RE *events)
         RE *event = RE_create(rp, CHOP, NULL, 0);
         events = RE_attach(events, event);
     }
+    else if (gear->id == CLUB)
+    {
+        RE *event = RE_create(rp, CLOB, NULL, 0);
+        events = RE_attach(events, event);
+    }
     
     rp->thoughts.gear = gear;
 

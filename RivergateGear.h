@@ -10,6 +10,7 @@ enum RivergateGearID
     DAGGER,
     SPEAR,
     LONGSWORD,
+    CLUB,
     GEARLEN
 };
 

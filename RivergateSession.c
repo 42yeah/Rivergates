@@ -253,6 +253,26 @@ void RS_processRE(RS *rs, RE *re)
             }
             break;
             
+        case CLOB:
+        	affected = RS_getRPPos(
+                rs,
+                pos_getAffectedPos(player->pos, player->thoughts.direction, 1));
+            if (affected)
+            {
+                RP_damage(player, affected, player->thoughts.gear);
+                sprintf(msg, "%s clobbed %s.\n", re->player->name,
+                        affected->name);
+                announce(rs, msg);
+                hitCount++;
+            }
+            else
+            {
+                sprintf(msg, "%s clobbed through thin air.\n",
+                        re->player->name);
+                announce(rs, msg);
+            }
+            break;
+            
         }
         
         re = re->next;

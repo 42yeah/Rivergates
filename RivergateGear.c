@@ -68,6 +68,10 @@ RG *RG_getGear(int id) {
         RG_modifyGear(rg, LONGSWORD, "Longsword", 55, 0, 0, 50, 1);
         break;
         
+    case CLUB:
+        RG_modifyGear(rg, CLUB, "Club", 50, 0, 0, 40, 1);
+        break;
+        
     default:
         break;
     }
