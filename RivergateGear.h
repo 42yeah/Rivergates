@@ -8,6 +8,8 @@ enum RivergateGearID
     NOTHING = -1,
     SWORD = 0,
     DAGGER,
+    SPEAR,
+    LONGSWORD,
     GEARLEN
 };
 

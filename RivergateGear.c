@@ -60,6 +60,14 @@ RG *RG_getGear(int id) {
                       0, 0, 25, 5);
         break;
         
+    case SPEAR:
+        RG_modifyGear(rg, SPEAR, "Spear", 45, 0, 0, 40, 1);
+        break;
+        
+    case LONGSWORD:
+        RG_modifyGear(rg, LONGSWORD, "Longsword", 55, 0, 0, 50, 1);
+        break;
+        
     default:
         break;
     }

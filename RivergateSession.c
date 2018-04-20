@@ -125,6 +125,7 @@ void RS_processRE(RS *rs, RE *re)
         RP *player = re->player;
         RG *gear = player->thoughts.gear;
         bool pass = TRUE;
+        int hitCount = 0;
 
         if (type != WALK && type != REST)
         {
@@ -144,7 +145,7 @@ void RS_processRE(RS *rs, RE *re)
                 pass = FALSE;
             }
         }
-        else 
+        else if (type == WALK)
         {
             if (!RP_checkAndRemove(STAMINA, player, WALKSTA))
             {
@@ -196,13 +197,14 @@ void RS_processRE(RS *rs, RE *re)
             if (affected)
             {
                 RP_damage(player, affected, player->thoughts.gear);
-                sprintf(msg, "Player %s chopped player %s!\n", re->player->name,
+                sprintf(msg, "%s chopped %s!\n", re->player->name,
                         affected->name);
                 announce(rs, msg);
+                hitCount++;
             }
             else
             {
-                sprintf(msg, "Player %s chopped through thin air.\n",
+                sprintf(msg, "%s chopped through thin air.\n",
                         re->player->name);
                 announce(rs, msg);
             }
@@ -215,17 +217,42 @@ void RS_processRE(RS *rs, RE *re)
             if (affected)
             {
                 RP_damage(player, affected, player->thoughts.gear);
-                sprintf(msg, "Player %s stabbed player %s!\n", re->player->name,
+                sprintf(msg, "%s stabbed %s.\n", re->player->name,
                         affected->name);
                 announce(rs, msg);
+                hitCount++;
             }
             else
             {
-                sprintf(msg, "Player %s stabbed through thin air.\n",
+                sprintf(msg, "%s stabbed through thin air.\n",
                         re->player->name);
                 announce(rs, msg);
             }
             break;
+            
+        case PIERCE:
+        	for (int i = 1; i <= 2; i++)
+            {
+                p = pos_getAffectedPos(re->player->pos,
+                                       re->player->thoughts.direction, i);
+                affected = RS_getRPPos(rs, p);
+                if (affected)
+                {
+                    RP_damage(re->player, affected, re->player->thoughts.gear);
+                    sprintf(msg, "%s pierced %s.", re->player->name,
+                            affected->name);
+                    announce(rs, msg);
+                    hitCount++;
+                }
+            }
+            
+            if (hitCount == 0)
+            {
+                sprintf(msg, "%s pierced through thin air.", re->player->name);
+                announce(rs, msg);
+            }
+            break;
+            
         }
         
         re = re->next;

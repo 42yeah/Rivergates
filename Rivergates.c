@@ -134,6 +134,7 @@ RE *appendEvent(RE* re, char *op, RS* rs, int i)
 
     if (!gearUsed && !isMove)
     {
+        printf("You decided to rest.\n");
         RE* event = RE_create(RS_getRPIndex(rs, i), REST, NULL, 0);
         re = RE_attach(re, event);
     }
